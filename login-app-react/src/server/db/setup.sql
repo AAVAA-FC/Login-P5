@@ -1,11 +1,11 @@
-create database ciencias_smart;
+create database cienciasmart;
 
 create user 'aavaa'@'localhost' identified by 'aavaa';
 
-grant all privileges on ciencias_smart to 'aavaa'@'localhost'
+grant all privileges on cienciasmart to 'aavaa'@'localhost'
 with grant option;
 
-use ciencias_smart;
+use cienciasmart;
 
 CREATE TABLE buyer (
     buyer_id INT AUTO_INCREMENT PRIMARY KEY,
