@@ -1,10 +1,10 @@
 import './Header.css';
-import cart from '../../assets/shoppingcart.png';
+import cart from '../../assets/shoppingcart.svg';
 
 function Header() {
     return(
         <header>
-            <img src={cart} alt="Shopping cart"></img>
+            <img src={cart} alt="Shopping cart by Yaprativa"></img>
             <div className='header-text-wrap'>
                 <p className='header-text'>CIENCIASMART</p>
             </div>
