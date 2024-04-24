@@ -11,7 +11,10 @@ def login():
     password = data.get('password')
 
     user = get_seller_by_email(email)
-    if user and user.check_password(password):
-         return 'Inicio de sesión exitoso', 200
-    else:
-        return 'Correo o contraseña inválidos.', 401
+    if not user:
+        return 'Correo inválido.', 401
+
+    if not user.check_password(password):
+        return 'Contraseña inválida.', 401
+
+    return 'Inicio de sesión exitoso', 200
