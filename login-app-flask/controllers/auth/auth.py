@@ -12,7 +12,7 @@ def login():
     email = data.get('email')
     password = data.get('password') 
 
-    user = get_seller_by_email(email) get_buyer_by_email(email)
+    user = get_seller_by_email(email) or get_buyer_by_email(email)
     if not user:
         return 'Correo inválido.', 401
 
