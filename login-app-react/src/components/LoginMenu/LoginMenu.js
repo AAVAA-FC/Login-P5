@@ -4,6 +4,7 @@ import { useState } from 'react';
 function LoginMenu({onHandleLogin}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -18,27 +19,31 @@ function LoginMenu({onHandleLogin}) {
         },
         body: JSON.stringify(data)
       });
+      
+      const response_data = await response.json();
 
       if (response.ok) {
         console.log(response);
 	onHandleLogin({username, password});  
         alert('Exito al iniciar sesión');
       } else {
-        alert('Correo o contraseña inválidos.');
+        console.log(response_data.error);
+        setMessage(response_data.error);
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error. Por favor intenta ingresar más tarde');
+      setMessage('Error. Por favor intenta ingresar más tarde')
     }
   };
 
   return (
-    <div className="login-menu">
+    <>
+      <div className="login-menu">
         <div className="login-card">
             <h2>Ingresar</h2>
             <form onSubmit={submitHandler}>
                 <div className="form-group">
-                <label htmlFor="username">Usuario</label>
+                <label htmlFor="username">Correo</label>
                 <input type="text" id="username" name="username" onChange={(event) => setUsername(event.target.value)}/>
                 </div>
                 <div className="form-group">
@@ -48,7 +53,9 @@ function LoginMenu({onHandleLogin}) {
                 <button type="submit">Login</button>
             </form>
         </div>
-    </div>
+      </div>
+      {message && <div className="login-message"><div className='error-message'>{message}</div></div>}
+    </>
   );
 }
 

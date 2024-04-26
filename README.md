@@ -1,10 +1,19 @@
-# Ingeniería de Software 2024-2
-Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ciencias de la UNAM del semestre 2024-2
+## Datos para el login
+### Usuario Seller 
 
-## Profesores:
+- **Usuario:** ignacio_raudry_cruz@gmail.com
 
-- Francisco Valdes Souto
-- Valeria Garcia Landa
-- Fernando Fong
-- Erick Martínez Piza
-- Adriana Hernandez Gasca
+- **Contraseña:** cocowang
+
+###  Usuario Buyer
+- **Usuario:** art.gz@gmail.com
+
+- **Contraseña:** cocowang
+
+## Inserts para la base de datos
+
+- INSERT INTO buyer (name, last_name_father, last_name_mother, email, password, cellphone)
+VALUES ('Arturo', 'Vacheron', 'Main', 'art.gz@gmail.com', '$2b$12$SGygo.AYYnpmIB6Grdmzf.bkcslIfx6CCq9rtqd6f/V1LGGRzlMBi', '5580332295')
+
+- INSERT INTO seller (name, last_name_father, last_name_mother, email, password, cellphone)
+VALUES ('Ignacio', 'Raudry', 'Cruz', 'ignacio_raudry_cruz@gmail.com', '$2b$12$SGygo.AYYnpmIB6Grdmzf.bkcslIfx6CCq9rtqd6f/V1LGGRzlMBi', '5520324058')

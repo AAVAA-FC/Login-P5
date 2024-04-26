@@ -14,9 +14,9 @@ def login():
 
     user = get_seller_by_email(email) or get_buyer_by_email(email)
     if not user:
-        return 'Correo inválido.', 401
+        return jsonify({'error': 'Correo inválido.'}), 401
 
     if not user.check_password(password):
-        return 'Contraseña inválida.', 401
+        return jsonify({'error': 'Contraseña inválida.'}), 401
 
-    return 'Inicio de sesión exitoso', 200
+    return jsonify({'message': 'Inicio de sesión exitoso'}), 200

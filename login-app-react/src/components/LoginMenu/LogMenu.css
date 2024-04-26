@@ -53,9 +53,19 @@
     border-radius: 4px;
 }
 
-.login-card {
-    
+.login-message {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.error-message {
+    padding: 15px 30px;
+    border: 1px solid #fa6464;
+    background-color: #ff9d9d;
+}
+
 
 
 /*.login-menu label {
