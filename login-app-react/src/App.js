@@ -18,18 +18,18 @@ function App() {
     }
     
     return (
-            <CookiesProvider>
-            <div>
-            {cookies.user ? (
+        <CookiesProvider>
+        { cookies.user ? (
                     <div>
                     <WelcomeMenu user={cookies.user} />
                     <button onClick={handleLogout}>Logout</button>
                     </div>
-            ) : (
-                    <LoginMenu onHandleLogin={handleLogin} />
-            )}
-        </div>
-            </CookiesProvider>
+            ) : 
+          <div className="App">
+            <Header />
+            <LoginMenu onHandleLogin={handleLogin} />
+          </div>
+        } </CookiesProvider>
     );
 }
 
