@@ -4,26 +4,33 @@ import './App.css';
 import Header from './components/Header/Header';
 import LoginMenu from './components/LoginMenu/LoginMenu';
 import WelcomeMenu from './components/WelcomeMenu/WelcomeMenu';
-import {CookiesProvider, useCookies} from 'react-cookie'
+import {CookiesProvider, useCookies, removeCookie} from 'react-cookie'
 
 function App() {
 
-    const [cookies, setCookie] = useCookies(['user'])
+    const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
     function handleLogin(user){
-	    setCookie('user', user, {path: '/'})
+	setCookie('user', user, {path: '/'})
+    }
+    function handleLogout() {
+        removeCookie('user', { path: '/' });
     }
     
-  return (
-    <CookiesProvider>
-	    { cookies.user ? <WelcomeMenu user={cookies.user} /> : 
-        <div className="App">
-          <Header />
-          <LoginMenu onHandleLogin={handleLogin} />
+    return (
+            <CookiesProvider>
+            <div>
+            {cookies.user ? (
+                    <div>
+                    <WelcomeMenu user={cookies.user} />
+                    <button onClick={handleLogout}>Logout</button>
+                    </div>
+            ) : (
+                    <LoginMenu onHandleLogin={handleLogin} />
+            )}
         </div>
-      }
-    </CookiesProvider>
-  );
+            </CookiesProvider>
+    );
 }
 
 export default App;
