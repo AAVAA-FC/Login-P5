@@ -1,7 +1,7 @@
 import './LogMenu.css';
 import { useState } from 'react';
 
-function LoginMenu() {
+function LoginMenu({onHandleLogin}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,6 +21,7 @@ function LoginMenu() {
 
       if (response.ok) {
         console.log(response);
+	onHandleLogin({username, password});  
         alert('Exito al iniciar sesión');
       } else {
         alert('Correo o contraseña inválidos.');
