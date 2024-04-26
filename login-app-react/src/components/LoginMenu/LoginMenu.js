@@ -24,8 +24,7 @@ function LoginMenu({onHandleLogin}) {
 
       if (response.ok) {
         console.log(response);
-	onHandleLogin({username, password});  
-        alert('Exito al iniciar sesión');
+	      onHandleLogin({username});  
       } else {
         console.log(response_data.error);
         setMessage(response_data.error);
