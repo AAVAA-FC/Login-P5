@@ -11,7 +11,7 @@ function App() {
     const [cookies, setCookie] = useCookies(['user'])
 
     function handleLogin(user){
-	setCookie('user', user, {path: '/welcome'})
+	    setCookie('user', user, {path: '/'})
     }
     
   return (
@@ -19,7 +19,6 @@ function App() {
       <Header />
       <LoginMenu />
      </div>**/
-
     <CookiesProvider>
 	  <div> {cookies.user ? <WelcomeMenu user={cookies.user} /> : <LoginMenu onHandleLogin={handleLogin} />}</div>
     </CookiesProvider>
