@@ -19,4 +19,4 @@ def login():
     if not user.check_password(password):
         return jsonify({'error': 'Contraseña inválida.'}), 401
 
-    return 'Inicio de sesión exitoso', 200
+    return jsonify({'message': 'Inicio de sesión exitoso'}), 200
